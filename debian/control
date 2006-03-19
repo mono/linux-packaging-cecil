@@ -3,7 +3,8 @@ Section: devel
 Priority: optional
 Maintainer: Debian Mono Group <pkg-mono-group@lists.alioth.debian.org>
 Uploaders: Sebastian Dröge <slomo@ubuntu.com>
-Build-Depends-Indep: debhelper (>= 5), cli-common (>= 0.2.0), mono-mcs (>= 1.1.9) | c-sharp-compiler, mono-gac, sharutils, dpatch
+Build-Depends: debhelper (>= 5), dpatch
+Build-Depends-Indep: cli-common (>= 0.2.0), mono-mcs (>= 1.1.9) | c-sharp-compiler, mono-gac, sharutils
 Standards-Version: 3.6.2
 
 Package: libmono-cecil0.3-cil

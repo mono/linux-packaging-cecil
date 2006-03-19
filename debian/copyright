@@ -3,11 +3,11 @@ Sun, 19 Mar 2006 20:20:41 +0100.
 
 It was downloaded from http://www.mono-project.com/Cecil
 
-Upstream Authors:  	Jb Evain  <jbevain@gmail.com>
+Upstream Author: Jb Evain  <jbevain@gmail.com>
 
 Copyright:
 
-    For everyting not explictly noted below:
+    For everything not explicitly noted below:
     Copyright (C) 2005 Jb Evain
     
     For Mono.Cecil/FieldAttributes.cs:
