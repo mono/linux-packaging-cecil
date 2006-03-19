@@ -1,0 +1,71 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+# This is for the .wapi directory for Mono.
+export MONO_SHARED_DIR=$(CURDIR)
+
+# provide patch and unpatch targets
+include /usr/share/dpatch/dpatch.make
+
+UPVERSION = $(shell dpkg-parsechangelog | grep ^Vers | cut -d\  -f2 | sed 's,-.*,,')
+
+configure: configure-stamp
+configure-stamp:
+	./configure --prefix=debian/tmp/usr
+	touch configure-stamp
+
+build: patch-stamp configure-stamp build-stamp
+build-stamp:
+	uudecode -o debian/Cecil.snk debian/Cecil.snk.uue
+	$(MAKE)
+	touch build-stamp
+
+clean: unpatch
+	dh_testdir
+	dh_testroot
+	-$(MAKE) clean
+	rm -rf $(MONO_SHARED_DIR)/.wapi
+	rm -f build-stamp configure-stamp debian/Cecil.snk
+	rm -f config.make
+	dh_clean 
+
+install: build
+	dh_testdir
+	dh_testroot
+	dh_clean -k 
+	dh_installdirs
+	$(MAKE) install
+	# fix the path in the pkgconfig file
+	sed -i 's;debian/tmp/usr;/usr;g' debian/tmp/usr/lib/pkgconfig/mono-cecil.pc
+	# fix the version in the pkgconfig file
+	sed -i 's;^Version:.*;Version:\ $(UPVERSION);g' debian/tmp/usr/lib/pkgconfig/mono-cecil.pc
+	# install the file into the GAC
+	gacutil -i Mono.Cecil.dll -root $(CURDIR)/debian/tmp/usr/lib
+	# fix permissions
+	find debian/tmp -type f -name "*.dll" -or -name "*.mdb" -or -name "*.cs" -or -name "*.config" | xargs chmod -x
+
+binary-indep: configure build install
+	dh_testdir
+	dh_testroot
+	dh_installchangelogs ChangeLog
+	dh_installdocs
+	dh_installdirs
+	dh_install
+	dh_installman
+	dh_compress
+	dh_fixperms
+	dh_makeclilibs -m $(UPVERSION)
+	dh_clideps
+	dh_installdeb
+	dh_gencontrol
+	dh_md5sums
+	dh_builddeb
+
+binary-arch: build install
+
+binary: binary-indep binary-arch
+
+.PHONY: build configure clean binary-indep binary-arch binary install 

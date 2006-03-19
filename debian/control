@@ -1,0 +1,24 @@
+Source: cecil
+Section: devel
+Priority: optional
+Maintainer: Debian Mono Group <pkg-mono-group@lists.alioth.debian.org>
+Uploaders: Sebastian Dröge <slomo@ubuntu.com>
+Build-Depends-Indep: debhelper (>= 5), cli-common (>= 0.2.0), mono-mcs (>= 1.1.9) | c-sharp-compiler, mono-gac, sharutils, dpatch
+Standards-Version: 3.6.2
+
+Package: libmono-cecil0.3-cil
+Architecture: all
+Depends: ${cli:Depends}
+Description: library to generate and inspect CIL assemblies
+ Cecil is a library under development to generate and inspect programs and
+ libraries in the ECMA CIL format.
+ .
+ In simple English, with Cecil, you can load existing managed assemblies,
+ browse all the contained types, modify them on the fly and save back to the
+ disk the modified assembly.
+ .
+ Today it is used by the Mono Debugger by the bug-finding and compliance
+ checking tool Gendarme as well as DB4O. 
+ .
+ http://www.mono-project.com/Cecil
+
