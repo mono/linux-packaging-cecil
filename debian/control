@@ -7,9 +7,10 @@ Build-Depends: debhelper (>= 5), dpatch
 Build-Depends-Indep: cli-common (>= 0.2.0), mono-mcs (>= 1.1.9) | c-sharp-compiler, mono-gac, sharutils
 Standards-Version: 3.6.2
 
-Package: libmono-cecil0.3-cil
+Package: libmono-cecil0.4-cil
 Architecture: all
 Depends: ${cli:Depends}
+Replaces: libmono-cecil0.3-cil
 Description: library to generate and inspect CIL assemblies
  Cecil is a library under development to generate and inspect programs and
  libraries in the ECMA CIL format.

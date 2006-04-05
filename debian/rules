@@ -11,6 +11,7 @@ export MONO_SHARED_DIR=$(CURDIR)
 include /usr/share/dpatch/dpatch.make
 
 UPVERSION = $(shell dpkg-parsechangelog | grep ^Vers | cut -d\  -f2 | sed 's,-.*,,')
+ABIVERSION = 0.4
 
 configure: configure-stamp
 configure-stamp:
@@ -42,6 +43,10 @@ install: build
 	sed -i 's;debian/tmp/usr;/usr;g' debian/tmp/usr/lib/pkgconfig/mono-cecil.pc
 	# fix the version in the pkgconfig file
 	sed -i 's;^Version:.*;Version:\ $(UPVERSION);g' debian/tmp/usr/lib/pkgconfig/mono-cecil.pc
+	# fix the assemblies dir
+	mkdir -p debian/tmp/usr/lib/cli
+	mv debian/tmp/usr/lib/Mono.Cecil debian/tmp/usr/lib/cli/mono-cecil$(ABIVERSION)
+	sed -i 's;^assemblies_dir=.*;assemblies_dir=$${prefix}/lib/cli/mono-cecil$(ABIVERSION);g' debian/tmp/usr/lib/pkgconfig/mono-cecil.pc
 	# install the file into the GAC
 	gacutil -i Mono.Cecil.dll -root $(CURDIR)/debian/tmp/usr/lib
 	# fix permissions
