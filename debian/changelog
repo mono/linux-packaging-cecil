@@ -4,6 +4,8 @@ cecil (0.4.1-1) unstable; urgency=low
   * Renamed libmono-cecil0.3-cil to libmono-cecil0.4-cil to reflect API	changes
   * Updated the paths to conform with the latest version of the CLI policy
   * Updated debian/copyright
+  * Updated cecil to conform with the new CLI policy
+  * Use dh_installcligac for late GAC installation
 
  -- Sebastian Dröge <slomo@ubuntu.com>  Wed,  5 Apr 2006 17:01:17 +0200
 

@@ -45,10 +45,8 @@ install: build
 	sed -i 's;^Version:.*;Version:\ $(UPVERSION);g' debian/tmp/usr/lib/pkgconfig/mono-cecil.pc
 	# fix the assemblies dir
 	mkdir -p debian/tmp/usr/lib/cli
-	mv debian/tmp/usr/lib/Mono.Cecil debian/tmp/usr/lib/cli/mono-cecil$(ABIVERSION)
-	sed -i 's;^assemblies_dir=.*;assemblies_dir=$${prefix}/lib/cli/mono-cecil$(ABIVERSION);g' debian/tmp/usr/lib/pkgconfig/mono-cecil.pc
-	# install the file into the GAC
-	gacutil -i Mono.Cecil.dll -root $(CURDIR)/debian/tmp/usr/lib
+	mv debian/tmp/usr/lib/Mono.Cecil debian/tmp/usr/lib/cli/mono-cecil-$(ABIVERSION)
+	sed -i 's;^assemblies_dir=.*;assemblies_dir=$${prefix}/lib/cli/mono-cecil-$(ABIVERSION);g' debian/tmp/usr/lib/pkgconfig/mono-cecil.pc
 	# fix permissions
 	find debian/tmp -type f -name "*.dll" -or -name "*.mdb" -or -name "*.cs" -or -name "*.config" | xargs chmod -x
 
@@ -58,6 +56,7 @@ binary-indep: configure build install
 	dh_installchangelogs ChangeLog
 	dh_installdocs
 	dh_installdirs
+	dh_installcligac
 	dh_install
 	dh_installman
 	dh_compress
