@@ -2,18 +2,18 @@
 
 @DPATCH@
 
---- cecil-0.3/Makefile.old	2006-03-19 20:40:03.475726384 +0100
-+++ cecil-0.3/Makefile	2006-03-19 20:40:22.098895232 +0100
+--- cecil/Makefile.old	2006-07-04 16:48:11.733169250 +0200
++++ cecil/Makefile	2006-07-04 16:48:48.387460000 +0200
 @@ -1,7 +1,7 @@
  include config.make
  
  MCS = mcs
--MCS_FLAGS =
-+MCS_FLAGS = -keyfile:debian/Cecil.snk
+-KEY_FILE = ../../mcs/class/mono.snk
++KEY_FILE = debian/Cecil.snk
+ MCS_FLAGS = -keyfile:$(KEY_FILE)
  
  all: 
- 	$(MCS) $(MCS_FLAGS) @Mono.Cecil.dll.sources /target:library /out:Mono.Cecil.dll
-@@ -17,4 +17,5 @@
+@@ -18,4 +18,5 @@
  install: all mono-cecil.pc
  	mkdir -p $(prefix)/lib/Mono.Cecil
  	cp Mono.Cecil.dll $(prefix)/lib/Mono.Cecil
