@@ -1,3 +1,15 @@
+cecil (0.4.1+svn20060703-1) unstable; urgency=low
+
+  * New upstream release
+  * debian/patches/01_strong-name.dpatch:
+    + updated
+  * debian/policy.0.4.Mono.Cecil.config,
+    debian/libmono-cecil0.4-cil.installcligac,
+    debian/rules:
+    + Add policy files for mapping 0.4.1 to 0.4.2
+
+ -- Sebastian Dröge <slomo@ubuntu.com>  Tue,  4 Jul 2006 16:45:17 +0200
+
 cecil (0.4.1-1) unstable; urgency=low
 
   * New upstream version
