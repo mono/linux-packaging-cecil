@@ -5,7 +5,7 @@ Maintainer: Debian Mono Group <pkg-mono-group@lists.alioth.debian.org>
 Uploaders: Sebastian Dröge <slomo@ubuntu.com>
 Build-Depends: debhelper (>= 5), dpatch
 Build-Depends-Indep: cli-common-dev (>= 0.4.0), mono-mcs (>= 1.1.9) | c-sharp-compiler, sharutils
-Standards-Version: 3.7.0
+Standards-Version: 3.7.2
 
 Package: libmono-cecil0.4-cil
 Architecture: all
