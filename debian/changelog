@@ -1,10 +1,11 @@
 cecil (0.4.1+svn20060703-2) unstable; urgency=low
 
-  * debian/policy.0.4.Mono.Cecil.config:
-    + Added the missing .0 to make the policy assembly actually
-      work (Closes: #377706)
+  * Sebastian 'slomo' Dröge:
+    + debian/policy.0.4.Mono.Cecil.config:
+      - Added the missing .0 to make the policy assembly actually
+        work (Closes: #377706)
 
- -- Sebastian Dröge <slomo@ubuntu.com>  Mon, 10 Jul 2006 23:16:38 +0200
+ -- Debian Mono Group <pkg-mono-group@lists.alioth.debian.org>  Mon, 10 Jul 2006 23:16:38 +0200
 
 cecil (0.4.1+svn20060703-1) unstable; urgency=low
 
