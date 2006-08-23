@@ -1,3 +1,11 @@
+cecil (0.4.3-1) unstable; urgency=low
+
+  * New upstream release
+  * debian/policy.0.4.Mono.Cecil.config:
+    + Update for the new version
+
+ -- Sebastian Dröge <slomo@ubuntu.com>  Wed, 23 Aug 2006 21:14:47 +0200
+
 cecil (0.4.1+svn20060703-2) unstable; urgency=low
 
   * Sebastian 'slomo' Dröge:
