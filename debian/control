@@ -2,12 +2,12 @@ Source: cecil
 Section: devel
 Priority: optional
 Maintainer: Debian Mono Group <pkg-mono-group@lists.alioth.debian.org>
-Uploaders: Sebastian Dröge <slomo@debian.org>
+Uploaders: Sebastian Dröge <slomo@debian.org>, Jose Carlos Garcia Sogo <jsogo@debian.org>
 Build-Depends: debhelper (>= 5), dpatch
-Build-Depends-Indep: cli-common-dev (>= 0.4.0), mono-mcs (>= 1.1.9) | c-sharp-compiler, sharutils
+Build-Depends-Indep: cli-common-dev (>= 0.4.4), mono-mcs (>= 1.1.9) | c-sharp-compiler, sharutils
 Standards-Version: 3.7.2
 
-Package: libmono-cecil0.4-cil
+Package: libmono-cecil0.5-cil
 Architecture: all
 Depends: ${cli:Depends}
 Replaces: libmono-cecil0.3-cil
@@ -18,9 +18,6 @@ Description: library to generate and inspect CIL assemblies
  In simple English, with Cecil, you can load existing managed assemblies,
  browse all the contained types, modify them on the fly and save back to the
  disk the modified assembly.
- .
- Today it is used by the Mono Debugger by the bug-finding and compliance
- checking tool Gendarme as well as DB4O. 
  .
  http://www.mono-project.com/Cecil
 
