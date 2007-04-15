@@ -1,3 +1,22 @@
+cecil (0.5-1) experimental; urgency=low
+
+  * New upstream version.
+  * debian/control:
+     + Bump build dependency to cli-common-dev >= 0.4.4
+     + In description, there is no need to say which software is also using
+     this package.
+     + ABI change, so change package name.
+     + Change Replaces to Conflicts field, and add libmono-cecil0.4-cil to it.
+  * debian/rules:
+     + There is no need to install *.dll files by hand. dh_install will do it.
+     + Don't delete *.mdb files if 'nostrip' option is set
+     + dh_install must be called in binary targets
+     + Disable building of policy file.
+  * debian/installcligac
+     + Do not try to install policy file in GAC
+
+ -- Jose Carlos Garcia Sogo <jsogo@debian.org>  Mon, 09 Apr 2007 23:57:29 +0200
+
 cecil (0.4.3-2) unstable; urgency=low
 
   * debian/control:
