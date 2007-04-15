@@ -9,7 +9,7 @@
  
  MCS = mcs
 -KEY_FILE = ../../mcs/class/mono.snk
-+KEY_FILE = debian/Cecil.snk
++KEY_FILE = debian/mono.snk
  MCS_FLAGS = -keyfile:$(KEY_FILE)
  
  all: 

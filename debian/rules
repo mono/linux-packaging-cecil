@@ -28,11 +28,11 @@ configure-stamp: patch-stamp
 
 build: build-stamp
 build-stamp: configure-stamp
-	uudecode -o debian/Cecil.snk debian/Cecil.snk.uue
+	uudecode -o debian/mono.snk debian/mono.snk.uue
 	$(MAKE)
 #	cd debian && al -link:policy.0.5.Mono.Cecil.config \
                     -out:policy.0.5.Mono.Cecil.dll \
-                    -keyfile:Cecil.snk
+                    -keyfile:mono.snk
 
 	touch build-stamp
 
@@ -42,7 +42,7 @@ clean: unpatch
 	-$(MAKE) clean
 	rm -f debian/policy.0.5.Mono.Cecil.dll
 	rm -rf $(MONO_SHARED_DIR)/.wapi
-	rm -f build-stamp configure-stamp debian/Cecil.snk
+	rm -f build-stamp configure-stamp debian/mono.snk
 	rm -f config.make
 	dh_clean 
 

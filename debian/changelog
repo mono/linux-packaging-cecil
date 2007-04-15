@@ -1,3 +1,10 @@
+cecil (0.5-2) unstable; urgency=low
+
+  * Merge experimental branch and upload to unstable.
+  * Make sure we use mono.snk key to sign binaries.
+
+ -- Jose Carlos Garcia Sogo <jsogo@debian.org>  Sun, 15 Apr 2007 21:43:04 +0200
+
 cecil (0.5-1) experimental; urgency=low
 
   * New upstream version.
