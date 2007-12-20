@@ -1,7 +1,7 @@
 Source: cecil
 Section: devel
 Priority: optional
-Maintainer: Debian Mono Group <pkg-mono-group@lists.alioth.debian.org>
+Maintainer: Debian CLI Libraries Team <pkg-cli-libs-team@lists.alioth.debian.org>
 Uploaders: Sebastian Dröge <slomo@debian.org>, Jose Carlos Garcia Sogo <jsogo@debian.org>
 Build-Depends: debhelper (>= 5), dpatch
 Build-Depends-Indep: cli-common-dev (>= 0.4.4), mono-mcs (>= 1.1.9) | c-sharp-compiler, sharutils
