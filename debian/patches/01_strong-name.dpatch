@@ -1,21 +1,27 @@
 #! /bin/sh /usr/share/dpatch/dpatch-run
 
 @DPATCH@
-
---- cecil/Makefile.old	2006-07-04 16:48:11.733169250 +0200
-+++ cecil/Makefile	2006-07-04 16:48:48.387460000 +0200
-@@ -1,7 +1,7 @@
- include config.make
+diff -urNad cecil-0.6~/Mono.Cecil/Makefile cecil-0.6/Mono.Cecil/Makefile
+--- cecil-0.6~/Mono.Cecil/Makefile	2007-10-04 11:25:25.000000000 +0200
++++ cecil-0.6/Mono.Cecil/Makefile	2008-03-02 18:04:15.000000000 +0100
+@@ -2,7 +2,7 @@
+ include ../../build/rules.make
  
- MCS = mcs
--KEY_FILE = ../../mcs/class/mono.snk
-+KEY_FILE = debian/mono.snk
- MCS_FLAGS = -keyfile:$(KEY_FILE)
+ LIBRARY = Mono.Cecil.dll
+-LIBRARY_SNK = ../mono.snk
++LIBRARY_SNK = debian/mono.snk
+ LIBRARY_PACKAGE = none
  
- all: 
-@@ -18,4 +18,5 @@
- install: all mono-cecil.pc
- 	mkdir -p $(prefix)/lib/Mono.Cecil
- 	cp Mono.Cecil.dll $(prefix)/lib/Mono.Cecil
-+	mkdir -p $(prefix)/lib/pkgconfig
- 	cp mono-cecil.pc $(prefix)/lib/pkgconfig/mono-cecil.pc
+ LIB_MCS_FLAGS = /r:$(corlib) /r:System.dll -keyfile:$(LIBRARY_SNK)
+diff -urNad cecil-0.6~/Mono.Cecil.Mdb/Makefile cecil-0.6/Mono.Cecil.Mdb/Makefile
+--- cecil-0.6~/Mono.Cecil.Mdb/Makefile	2007-10-04 11:25:25.000000000 +0200
++++ cecil-0.6/Mono.Cecil.Mdb/Makefile	2008-03-02 18:04:28.000000000 +0100
+@@ -2,7 +2,7 @@
+ include ../../build/rules.make
+ 
+ LIBRARY = Mono.Cecil.Mdb.dll
+-LIBRARY_SNK = ../mono.snk
++LIBRARY_SNK = debian/mono.snk
+ LIBRARY_PACKAGE = none
+ 
+ LIB_MCS_FLAGS = /r:$(corlib) /r:Mono.Cecil.dll /d:CECIL -keyfile:$(LIBRARY_SNK)
