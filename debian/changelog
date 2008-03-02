@@ -1,3 +1,13 @@
+cecil (0.6-1) unstable; urgency=low
+
+  * New upstream release
+  * debian/control:
+    + Bump Standards-Version. No changes needed
+    + Depend on cli-common-dev (>= 0.5.4)
+  * Use dh_clifixperms and dh_clistrip instead of manual stuff
+
+ -- Jose Carlos Garcia Sogo <jsogo@debian.org>  Sun, 02 Mar 2008 17:49:13 +0100
+
 cecil (0.5-2) unstable; urgency=low
 
   * Merge experimental branch and upload to unstable.
