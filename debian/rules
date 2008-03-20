@@ -21,15 +21,27 @@ endif
 UPVERSION = $(shell dpkg-parsechangelog | grep ^Vers | cut -d\  -f2 | sed 's,-.*,,')
 ABIVERSION = 0.5
 
-configure: configure-stamp
-configure-stamp: patch-stamp
-	./configure --prefix=debian/tmp/usr
-	touch configure-stamp
-
 build: build-stamp
-build-stamp: configure-stamp
+build-stamp:
 	uudecode -o debian/mono.snk debian/mono.snk.uue
-	$(MAKE)
+
+	# build Mono.Cecil.dll
+	cd Mono.Cecil && mcs -keyfile:../debian/mono.snk \
+		@Mono.Cecil.dll.sources /target:library \
+		/out:Mono.Cecil.dll
+	sed -i -e 's;@prefix@;/usr;g' \
+		-e 's;^Version:.*;Version:\ $(UPVERSION);g' \
+		-e 's;^assemblies_dir=.*;assemblies_dir=$${prefix}/lib/cli/mono-cecil-$(ABIVERSION);g' \
+		Mono.Cecil/mono-cecil.pc.in > Mono.Cecil/mono-cecil.pc
+
+	# build Mono.Cecil.Mdb.dll, needs newer mono!
+	# cd Mono.Cecil.Mdb && mcs -keyfile:../debian/mono.snk \
+	#	@Mono.Cecil.Mdb.dll.sources /target:library \
+	#	/r:../Mono.Cecil/Mono.Cecil.dll \
+	#	/r:Mono.CompilerServices.SymbolWriter.dll
+	#	/out:Mono.Cecil.Mdb.dll	
+
+
 #	cd debian && al -link:policy.0.5.Mono.Cecil.config \
                     -out:policy.0.5.Mono.Cecil.dll \
                     -keyfile:mono.snk
@@ -44,39 +56,33 @@ clean: unpatch
 	rm -rf $(MONO_SHARED_DIR)/.wapi
 	rm -f build-stamp configure-stamp debian/mono.snk
 	rm -f config.make
+
+	rm -f Mono.Cecil/Mono.Cecil.dll
+	rm -f Mono.Cecil/mono-cecil.pc
+	rm -f Mono.Cecil.Mdb/Mono.Cecil.Mdb.dll
+
 	dh_clean 
 
 install: build
 	dh_testdir
 	dh_testroot
-	dh_clean -k 
-	$(MAKE) install DESTDIR=$(CURDIR)/debian/tmp
-
-	# fix the path in the pkgconfig file
-	sed -i 's;debian/tmp/usr;/usr;g' debian/tmp/usr/lib/pkgconfig/mono-cecil.pc
-	
-	# fix the version in the pkgconfig file
-	sed -i 's;^Version:.*;Version:\ $(UPVERSION);g' debian/tmp/usr/lib/pkgconfig/mono-cecil.pc
-	
-	# fix the assemblies dir
-#	cp -a debian/policy.0.5.Mono.Cecil* debian/tmp/usr/lib/cli/mono-cecil-$(ABIVERSION)
-	sed -i 's;^assemblies_dir=.*;assemblies_dir=$${prefix}/lib/cli/mono-cecil-$(ABIVERSION);g' debian/tmp/usr/lib/pkgconfig/mono-cecil.pc
+	dh_clean -k
 	
 binary-indep: configure build install
 	dh_testdir
 	dh_testroot
 	dh_installdirs
 
-	dh_install --sourcedir=debian/tmp/
+	dh_install
 
-	dh_installchangelogs ChangeLog
+	dh_installchangelogs Mono.Cecil/ChangeLog
 	dh_installdocs
 	dh_installman
 	dh_installcligac
 	
 	dh_compress
 	dh_fixperms
-	dh_clifxperms
+	dh_clifixperms
 	dh_clistrip
 	dh_makeclilibs -m $(UPVERSION)
 	dh_clideps -d
