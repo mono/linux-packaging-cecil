@@ -21,7 +21,7 @@ endif
 UPVERSION = $(shell dpkg-parsechangelog | grep ^Vers | cut -d\  -f2 | sed 's,-.*,,')
 ABIVERSION = 0.5
 
-build: build-stamp
+build: patch-stamp build-stamp
 build-stamp:
 	uudecode -o debian/mono.snk debian/mono.snk.uue
 
@@ -54,7 +54,7 @@ clean: unpatch
 	-$(MAKE) clean
 	rm -f debian/policy.0.5.Mono.Cecil.dll
 	rm -rf $(MONO_SHARED_DIR)/.wapi
-	rm -f build-stamp configure-stamp debian/mono.snk
+	rm -f patch-stamp build-stamp debian/mono.snk
 	rm -f config.make
 
 	rm -f Mono.Cecil/Mono.Cecil.dll
@@ -68,7 +68,7 @@ install: build
 	dh_testroot
 	dh_clean -k
 	
-binary-indep: configure build install
+binary-indep: patch build install
 	dh_testdir
 	dh_testroot
 	dh_installdirs
@@ -95,4 +95,4 @@ binary-arch: build install
 
 binary: binary-indep binary-arch
 
-.PHONY: build configure clean binary-indep binary-arch binary install 
+.PHONY: patch build clean binary-indep binary-arch binary install 
