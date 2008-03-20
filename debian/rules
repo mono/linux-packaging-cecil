@@ -29,7 +29,7 @@ build-stamp:
 	cd Mono.Cecil && mcs -keyfile:../debian/mono.snk \
 		@Mono.Cecil.dll.sources /target:library \
 		/out:Mono.Cecil.dll
-	sed -i -e 's;@prefix@;/usr;g' \
+	sed -e 's;@prefix@;/usr;g' \
 		-e 's;^Version:.*;Version:\ $(UPVERSION);g' \
 		-e 's;^assemblies_dir=.*;assemblies_dir=$${prefix}/lib/cli/mono-cecil-$(ABIVERSION);g' \
 		Mono.Cecil/mono-cecil.pc.in > Mono.Cecil/mono-cecil.pc
