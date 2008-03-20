@@ -12,6 +12,8 @@ cecil (0.6-1) unstable; urgency=low
     debian/rules:
     + Build the assemblies by hand now as upstream has a broken build system.
     + Clean up and fix some things.
+  * debian/patches/01_assembly-version.dpatch:
+    + Change assembly version back to 0.5.0.0 as it's ABI compatible.
 
  -- Sebastian Dröge <slomo@debian.org>  Thu, 20 Mar 2008 18:03:02 +0100
 
