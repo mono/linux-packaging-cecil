@@ -1,3 +1,10 @@
+cecil (0.6-2) UNRELEASED; urgency=low
+
+  * debian/rules, debian/control:
+    + updated for Mono 2.0 transition
+
+ -- David Paleino <d.paleino@gmail.com>  Sat, 07 Feb 2009 21:06:30 +0100
+
 cecil (0.6-1) unstable; urgency=low
 
   [ Jose Carlos Garcia Sogo ]

@@ -4,7 +4,10 @@ Priority: optional
 Maintainer: Debian CLI Libraries Team <pkg-cli-libs-team@lists.alioth.debian.org>
 Uploaders: Sebastian Dröge <slomo@debian.org>, Jose Carlos Garcia Sogo <jsogo@debian.org>
 Build-Depends: debhelper (>= 5), dpatch
-Build-Depends-Indep: cli-common-dev (>= 0.5.4), mono-mcs (>= 1.1.9) | c-sharp-compiler, sharutils
+Build-Depends-Indep: cli-common-dev (>= 0.5.4),
+ mono-devel (>= 2.0),
+ sharutils,
+ libmono2.0-cil
 Standards-Version: 3.7.3
 
 Package: libmono-cecil0.5-cil

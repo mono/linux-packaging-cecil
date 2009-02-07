@@ -26,7 +26,7 @@ build-stamp:
 	uudecode -o debian/mono.snk debian/mono.snk.uue
 
 	# build Mono.Cecil.dll
-	cd Mono.Cecil && mcs -keyfile:../debian/mono.snk \
+	cd Mono.Cecil && csc -keyfile:../debian/mono.snk \
 		@Mono.Cecil.dll.sources /target:library \
 		/out:Mono.Cecil.dll
 	sed -e 's;@prefix@;/usr;g' \
@@ -35,7 +35,7 @@ build-stamp:
 		Mono.Cecil/mono-cecil.pc.in > Mono.Cecil/mono-cecil.pc
 
 	# build Mono.Cecil.Mdb.dll, needs newer mono!
-	# cd Mono.Cecil.Mdb && mcs -keyfile:../debian/mono.snk \
+	# cd Mono.Cecil.Mdb && csc -keyfile:../debian/mono.snk \
 	#	@Mono.Cecil.Mdb.dll.sources /target:library \
 	#	/r:../Mono.Cecil/Mono.Cecil.dll \
 	#	/r:Mono.CompilerServices.SymbolWriter.dll
