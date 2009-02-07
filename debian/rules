@@ -4,26 +4,18 @@
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
 
-# This is for the .wapi directory for Mono.
-export MONO_SHARED_DIR=$(CURDIR)
+include /usr/share/cli-common/cli.make
 
 # provide patch and unpatch targets
 include /usr/share/dpatch/dpatch.make
 
-CFLAGS = -Wall -g
-
-ifneq (,$(findstring noopt,$(DEB_BUILD_OPTIONS)))
-	CFLAGS += -O0
-else
-	CFLAGS += -O2
-endif
-
 UPVERSION = $(shell dpkg-parsechangelog | grep ^Vers | cut -d\  -f2 | sed 's,-.*,,')
 ABIVERSION = 0.5
 
-build: patch-stamp build-stamp
-build-stamp:
+build: build-stamp
+build-stamp: $(DPATCH_STAMPFN)
 	uudecode -o debian/mono.snk debian/mono.snk.uue
+	dh build --before dh_auto_build
 
 	# build Mono.Cecil.dll
 	cd Mono.Cecil && csc -keyfile:../debian/mono.snk \
@@ -46,53 +38,28 @@ build-stamp:
                     -out:policy.0.5.Mono.Cecil.dll \
                     -keyfile:mono.snk
 
-	touch build-stamp
+	dh build --after dh_auto_build
+	touch $@
 
 clean: unpatch
-	dh_testdir
-	dh_testroot
-	-$(MAKE) clean
-	rm -f debian/policy.0.5.Mono.Cecil.dll
-	rm -rf $(MONO_SHARED_DIR)/.wapi
-	rm -f patch-stamp build-stamp debian/mono.snk
-	rm -f config.make
+	dh $@ --before dh_clean
+	dh_clean debian/policy.0.5.Mono.Cecil.dll debian/mono.snk config.make \
+		Mono.Cecil/Mono.Cecil.dll Mono.Cecil/mono-cecil.pc Mono.Cecil.Mdb/Mono.Cecil.Mdb.dll
 
-	rm -f Mono.Cecil/Mono.Cecil.dll
-	rm -f Mono.Cecil/mono-cecil.pc
-	rm -f Mono.Cecil.Mdb/Mono.Cecil.Mdb.dll
-
-	dh_clean 
-
-install: build
-	dh_testdir
-	dh_testroot
-	dh_clean -k
-	
-binary-indep: patch build install
-	dh_testdir
-	dh_testroot
-	dh_installdirs
-
-	dh_install
-
+install: install-stamp
+install-stamp: build
+	dh install --before dh_installchangelogs
 	dh_installchangelogs Mono.Cecil/ChangeLog
-	dh_installdocs
-	dh_installman
-	dh_installcligac
-	
-	dh_compress
-	dh_fixperms
-	dh_clifixperms
-	dh_clistrip
+	dh install --after dh_installchangelogs
+
+binary-indep: install
+	dh $@ --before dh_makeclilibs
 	dh_makeclilibs -m $(UPVERSION)
 	dh_clideps -d
-	dh_installdeb
-	dh_gencontrol
-	dh_md5sums
-	dh_builddeb
+	dh $@ --remaining
 
-binary-arch: build install
+binary-arch:
 
 binary: binary-indep binary-arch
 
-.PHONY: patch build clean binary-indep binary-arch binary install 
+.PHONY: build clean binary-indep binary-arch binary install 
