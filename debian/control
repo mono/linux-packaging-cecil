@@ -13,7 +13,7 @@ Homepage: http://www.mono-project.com/Cecil
 
 Package: libmono-cecil0.5-cil
 Architecture: all
-Depends: ${cli:Depends}
+Depends: ${cli:Depends}, ${misc:Depends}
 Conflicts: libmono-cecil0.3-cil, libmono-cecil0.4-cil
 Description: library to generate and inspect CIL assemblies
  Cecil is a library under development to generate and inspect programs and
