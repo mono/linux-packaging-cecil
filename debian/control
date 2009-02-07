@@ -9,6 +9,7 @@ Build-Depends-Indep: cli-common-dev (>= 0.5.4),
  sharutils,
  libmono2.0-cil
 Standards-Version: 3.7.3
+Homepage: http://www.mono-project.com/Cecil
 
 Package: libmono-cecil0.5-cil
 Architecture: all
@@ -21,6 +22,3 @@ Description: library to generate and inspect CIL assemblies
  In simple English, with Cecil, you can load existing managed assemblies,
  browse all the contained types, modify them on the fly and save back to the
  disk the modified assembly.
- .
- http://www.mono-project.com/Cecil
-
