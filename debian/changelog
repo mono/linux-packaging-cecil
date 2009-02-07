@@ -9,12 +9,14 @@ cecil (0.6-2) UNRELEASED; urgency=low
     + Standards-Version bumped to 3.8.0:
       - debian/README.source added
   * debian/compat bumped to 7
-  * debian/rules updated: using dh7-style
+  * debian/rules:
+    + updated: using dh7-style
+    + added get-orig-source target
   * debian/patches/:
     + 01_assembly-version.dpatch: added description
   * debian/watch added
 
- -- David Paleino <d.paleino@gmail.com>  Sat, 07 Feb 2009 21:28:03 +0100
+ -- David Paleino <d.paleino@gmail.com>  Sat, 07 Feb 2009 21:31:02 +0100
 
 cecil (0.6-1) unstable; urgency=low
 

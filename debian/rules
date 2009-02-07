@@ -62,4 +62,12 @@ binary-arch:
 
 binary: binary-indep binary-arch
 
+get-orig-source:
+	[ -d ../tarballs ] || mkdir ../tarballs
+	uscan \
+		--force-download \
+		--download-version $(UPVERSION) \
+		--destdir ../tarballs \
+		--rename --verbose
+
 .PHONY: build clean binary-indep binary-arch binary install 
