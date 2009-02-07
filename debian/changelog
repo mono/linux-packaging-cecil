@@ -12,8 +12,9 @@ cecil (0.6-2) UNRELEASED; urgency=low
   * debian/rules updated: using dh7-style
   * debian/patches/:
     + 01_assembly-version.dpatch: added description
+  * debian/watch added
 
- -- David Paleino <d.paleino@gmail.com>  Sat, 07 Feb 2009 21:23:46 +0100
+ -- David Paleino <d.paleino@gmail.com>  Sat, 07 Feb 2009 21:28:03 +0100
 
 cecil (0.6-1) unstable; urgency=low
 
