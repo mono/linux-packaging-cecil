@@ -1,5 +1,6 @@
 #! /bin/sh /usr/share/dpatch/dpatch-run
-## DP: Fixes assembly version
+## DP: Author: Sebastian Dröge <slomo@debian.org>
+## DP: Change assembly version back to 0.5.0.0 as it's ABI compatible.
 
 @DPATCH@
 
