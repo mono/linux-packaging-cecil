@@ -1,4 +1,5 @@
 #! /bin/sh /usr/share/dpatch/dpatch-run
+## DP: Fixes assembly version
 
 @DPATCH@
 
