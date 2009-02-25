@@ -1,4 +1,4 @@
-cecil (0.6-2) UNRELEASED; urgency=low
+cecil (0.6-2) unstable; urgency=low
 
   * debian/rules, debian/control:
     + updated for Mono 2.0 transition
@@ -17,7 +17,7 @@ cecil (0.6-2) UNRELEASED; urgency=low
     + 01_assembly-version.dpatch: added description
   * debian/watch added
 
- -- David Paleino <d.paleino@gmail.com>  Sat, 07 Feb 2009 22:47:41 +0100
+ -- David Paleino <d.paleino@gmail.com>  Wed, 25 Feb 2009 23:42:16 +0100
 
 cecil (0.6-1) unstable; urgency=low
 
