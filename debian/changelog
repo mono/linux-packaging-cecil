@@ -1,3 +1,17 @@
+cecil (0.6-3) UNRELEASED; urgency=low
+
+  * debian/rules,
+    debian/control:
+    + Use mono-csc from mono-devel 2.4.2.3
+  * debian/control:
+    + No-change bumpo to Standards 3.8.3
+    + Change section to cli-mono
+  * debian/control,
+    debian/libmono-cecil-cil-dev.install:
+    + Add new -dev package for better handling of ABI changes
+
+ -- Jo Shields <directhex@apebox.org>  Fri, 06 Nov 2009 14:14:58 +0000
+
 cecil (0.6-2) unstable; urgency=low
 
   * debian/rules, debian/control:

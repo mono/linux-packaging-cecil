@@ -18,7 +18,7 @@ build-stamp: $(DPATCH_STAMPFN)
 	dh build --before dh_auto_build
 
 	# build Mono.Cecil.dll
-	cd Mono.Cecil && csc -keyfile:../debian/mono.snk \
+	cd Mono.Cecil && mono-csc -keyfile:../debian/mono.snk \
 		@Mono.Cecil.dll.sources /target:library \
 		/out:Mono.Cecil.dll
 	sed -e 's;@prefix@;/usr;g' \
@@ -27,7 +27,7 @@ build-stamp: $(DPATCH_STAMPFN)
 		Mono.Cecil/mono-cecil.pc.in > Mono.Cecil/mono-cecil.pc
 
 	# build Mono.Cecil.Mdb.dll, needs newer mono!
-	# cd Mono.Cecil.Mdb && csc -keyfile:../debian/mono.snk \
+	# cd Mono.Cecil.Mdb && mono-csc -keyfile:../debian/mono.snk \
 	#	@Mono.Cecil.Mdb.dll.sources /target:library \
 	#	/r:../Mono.Cecil/Mono.Cecil.dll \
 	#	/r:Mono.CompilerServices.SymbolWriter.dll

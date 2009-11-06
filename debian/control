@@ -1,14 +1,14 @@
 Source: cecil
-Section: devel
+Section: cli-mono
 Priority: optional
 Maintainer: Debian CLI Libraries Team <pkg-cli-libs-team@lists.alioth.debian.org>
 Uploaders: Sebastian Dröge <slomo@debian.org>, Jose Carlos Garcia Sogo <jsogo@debian.org>
 Build-Depends: debhelper (>= 7), dpatch
 Build-Depends-Indep: cli-common-dev (>= 0.5.4),
- mono-devel (>= 2.0),
+ mono-devel (>= 2.4.2.3),
  sharutils,
  libmono2.0-cil
-Standards-Version: 3.8.0
+Standards-Version: 3.8.3
 Homepage: http://www.mono-project.com/Cecil
 Vcs-Svn: svn://svn.debian.org/svn/pkg-cli-libs/packages/cecil/trunk
 Vcs-Browser: http://svn.debian.org/viewsvn/pkg-cli-libs/packages/cecil/trunk/
@@ -24,3 +24,21 @@ Description: library to generate and inspect CIL assemblies
  In simple English, with Cecil, you can load existing managed assemblies,
  browse all the contained types, modify them on the fly and save back to the
  disk the modified assembly.
+ .
+ This package contains the Cecil library
+
+Package: libmono-cecil-cil-dev
+Architecture: all
+Depends: libmono-cecil0.5-cil (= ${binary:Version}), ${misc:Depends}
+Replaces: libmono-cecil0.5-cil (<< 0.6-3)
+Conflicts: libmono-cecil0.3-cil, libmono-cecil0.4-cil
+Description: library to generate and inspect CIL assemblies
+ Cecil is a library under development to generate and inspect programs and
+ libraries in the ECMA CIL format.
+ .
+ In simple English, with Cecil, you can load existing managed assemblies,
+ browse all the contained types, modify them on the fly and save back to the
+ disk the modified assembly.
+ .
+ This package contains development files for the Cecil library, and should 
+ be used for compilation
