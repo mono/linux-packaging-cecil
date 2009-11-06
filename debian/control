@@ -28,6 +28,7 @@ Description: library to generate and inspect CIL assemblies
  This package contains the Cecil library
 
 Package: libmono-cecil-cil-dev
+Section: libdevel
 Architecture: all
 Depends: libmono-cecil0.5-cil (= ${binary:Version}), ${misc:Depends}
 Replaces: libmono-cecil0.5-cil (<< 0.6-3)
