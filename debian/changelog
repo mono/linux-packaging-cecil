@@ -9,6 +9,10 @@ cecil (0.6-3) UNRELEASED; urgency=low
   * debian/control,
     debian/libmono-cecil-cil-dev.install:
     + Add new -dev package for better handling of ABI changes
+  * debian/rules,
+    debian/install,
+    debian/installcligac:
+    + CLI Policy 0.7 install location
 
  -- Jo Shields <directhex@apebox.org>  Fri, 06 Nov 2009 14:14:58 +0000
 

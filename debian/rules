@@ -23,7 +23,7 @@ build-stamp: $(DPATCH_STAMPFN)
 		/out:Mono.Cecil.dll
 	sed -e 's;@prefix@;/usr;g' \
 		-e 's;^Version:.*;Version:\ $(UPVERSION);g' \
-		-e 's;^assemblies_dir=.*;assemblies_dir=$${prefix}/lib/cli/mono-cecil-$(ABIVERSION);g' \
+		-e 's;^assemblies_dir=.*;assemblies_dir=$${prefix}/lib/cli/Mono.Cecil-$(ABIVERSION);g' \
 		Mono.Cecil/mono-cecil.pc.in > Mono.Cecil/mono-cecil.pc
 
 	# build Mono.Cecil.Mdb.dll, needs newer mono!
