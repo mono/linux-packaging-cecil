@@ -1,4 +1,4 @@
-cecil (0.6-3) UNRELEASED; urgency=low
+cecil (0.6-3) unstable; urgency=low
 
   * debian/rules,
     debian/control:
