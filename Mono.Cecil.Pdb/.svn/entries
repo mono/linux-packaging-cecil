@@ -1,0 +1,68 @@
+8
+
+dir
+86860
+svn+ssh://mono-cvs.ximian.com/source/tags/cecil-0.6/Mono.Cecil.Pdb
+svn+ssh://mono-cvs.ximian.com/source
+
+
+
+2007-10-04T09:10:48.080983Z
+86860
+jbevain
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+e3ebcda4-bce8-0310-ba0a-eca2169e7518
+
+default.build
+file
+
+
+
+
+2007-10-04T09:25:25.000000Z
+66d2ae13507012986ccf765ec006cd16
+2007-10-04T08:57:18.405172Z
+86853
+jbevain
+
+ChangeLog
+file
+
+
+
+
+2007-10-04T09:25:25.000000Z
+c6ca50f3800693ec07379dbb6d07e734
+2007-10-04T08:57:18.405172Z
+86853
+jbevain
+has-props
+
+Mono.Cecil.Pdb.csproj
+file
+
+
+
+
+2007-10-04T09:25:25.000000Z
+d658ad2ad10b15375f447ae003ff95d2
+2007-10-04T08:57:18.405172Z
+86853
+jbevain
+
+Mono.Cecil.Pdb
+dir
+
