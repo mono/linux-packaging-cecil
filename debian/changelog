@@ -6,14 +6,16 @@ cecil (0.6+svn148654-1) UNRELEASED; urgency=low
     or ABI stable. Consumers must now copy the library.
   * debian/control, debian/rules, debian/patches: Disable patchsys as this was
     only used to change assembly version which is now not necessary.
-  * debian/rules, debian/mono.snk.uue: No need to sign now, not neccessary for
+  * debian/rules, debian/mono.snk.uue: No need to sign now, not necessary for
     unstable libs.
   * debian/control, debian/libmono-cecil-cil-dev*: Drop -dev package as this
     is used for dynamic linking, which we are not doing any more.
   * debian/changelog, debian/clean, debian/libmono-cecil-cil.docs: Update
     dh7isation
+  * debian/control: Change build-depends on packages provided by `mono' source
+    package to mono-devel (>= 2.4.3) as this provides all we need.
 
- -- Iain Lane <laney@ubuntu.com>  Wed, 16 Dec 2009 20:27:43 +0000
+ -- Iain Lane <laney@ubuntu.com>  Wed, 16 Dec 2009 21:52:33 +0000
 
 cecil (0.6-3) unstable; urgency=low
 

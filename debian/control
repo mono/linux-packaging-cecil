@@ -3,11 +3,10 @@ Section: cli-mono
 Priority: optional
 Maintainer: Debian CLI Libraries Team <pkg-cli-libs-team@lists.alioth.debian.org>
 Uploaders: Sebastian Dröge <slomo@debian.org>, Jose Carlos Garcia Sogo <jsogo@debian.org>
-Build-Depends: debhelper (>= 7)
+Build-Depends: debhelper (>= 7.0.50~)
 Build-Depends-Indep: cli-common-dev (>= 0.5.4),
- mono-devel (>= 2.4.2.3),
- sharutils,
- libmono2.0-cil
+ mono-devel (>= 2.4.3),
+ sharutils
 Standards-Version: 3.8.3
 Homepage: http://www.mono-project.com/Cecil
 Vcs-Git: git://git.debian.org/git/pkg-cli-libs/packages/cecil.git
