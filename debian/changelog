@@ -2,8 +2,18 @@ cecil (0.6+svn148654-1) UNRELEASED; urgency=low
 
   * debian/control: Move to git and update Vcs-* metadata 
   * New upstream SVN snapshot, needed for db4o
+  * Package as unstable as the library is not considered by upstream to be API
+    or ABI stable. Consumers must now copy the library.
+  * debian/control, debian/rules, debian/patches: Disable patchsys as this was
+    only used to change assembly version which is now not necessary.
+  * debian/rules, debian/mono.snk.uue: No need to sign now, not neccessary for
+    unstable libs.
+  * debian/control, debian/libmono-cecil-cil-dev*: Drop -dev package as this
+    is used for dynamic linking, which we are not doing any more.
+  * debian/changelog, debian/clean, debian/libmono-cecil-cil.docs: Update
+    dh7isation
 
- -- Iain Lane <laney@ubuntu.com>  Wed, 16 Dec 2009 20:15:46 +0000
+ -- Iain Lane <laney@ubuntu.com>  Wed, 16 Dec 2009 20:27:43 +0000
 
 cecil (0.6-3) unstable; urgency=low
 

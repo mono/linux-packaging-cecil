@@ -6,25 +6,17 @@
 
 include /usr/share/cli-common/cli.make
 
-# provide patch and unpatch targets
-include /usr/share/dpatch/dpatch.make
-
 UPVERSION = $(shell dpkg-parsechangelog | grep ^Vers | cut -d\  -f2 | sed 's,-.*,,')
-ABIVERSION = 0.5
 
-build: build-stamp
-build-stamp: $(DPATCH_STAMPFN)
-	uudecode -o debian/mono.snk debian/mono.snk.uue
-	dh build --before dh_auto_build
-
+override_dh_auto_build:
 	# build Mono.Cecil.dll
-	cd Mono.Cecil && mono-csc -keyfile:../debian/mono.snk \
+	cd Mono.Cecil && mono-csc \
 		@Mono.Cecil.dll.sources /target:library \
 		/out:Mono.Cecil.dll
-	sed -e 's;@prefix@;/usr;g' \
-		-e 's;^Version:.*;Version:\ $(UPVERSION);g' \
-		-e 's;^assemblies_dir=.*;assemblies_dir=$${prefix}/lib/cli/Mono.Cecil-$(ABIVERSION);g' \
-		Mono.Cecil/mono-cecil.pc.in > Mono.Cecil/mono-cecil.pc
+#	sed -e 's;@prefix@;/usr;g' \
+#		-e 's;^Version:.*;Version:\ $(UPVERSION);g' \
+#		-e 's;^assemblies_dir=.*;assemblies_dir=$${prefix}/lib/cli/Mono.Cecil-$(ABIVERSION);g' \
+#		Mono.Cecil/mono-cecil.pc.in > Mono.Cecil/mono-cecil.pc
 
 	# build Mono.Cecil.Mdb.dll, needs newer mono!
 	# cd Mono.Cecil.Mdb && mono-csc -keyfile:../debian/mono.snk \
@@ -38,29 +30,8 @@ build-stamp: $(DPATCH_STAMPFN)
                     -out:policy.0.5.Mono.Cecil.dll \
                     -keyfile:mono.snk
 
-	dh build --after dh_auto_build
-	touch $@
-
-clean: unpatch
-	dh $@ --before dh_clean
-	dh_clean debian/policy.0.5.Mono.Cecil.dll debian/mono.snk config.make \
-		Mono.Cecil/Mono.Cecil.dll Mono.Cecil/mono-cecil.pc Mono.Cecil.Mdb/Mono.Cecil.Mdb.dll
-
-install: install-stamp
-install-stamp: build
-	dh install --before dh_installchangelogs
-	dh_installchangelogs Mono.Cecil/ChangeLog
-	dh install --after dh_installchangelogs
-
-binary-indep: install
-	dh $@ --before dh_makeclilibs
-	dh_makeclilibs -m $(UPVERSION)
-	dh_clideps -d
-	dh $@ --remaining
-
-binary-arch:
-
-binary: binary-indep binary-arch
+%:
+	dh $@
 
 get-orig-source:
 	[ -d ../tarballs ] || mkdir ../tarballs
@@ -69,5 +40,3 @@ get-orig-source:
 		--download-version $(UPVERSION) \
 		--destdir ../tarballs \
 		--rename --verbose
-
-.PHONY: build clean binary-indep binary-arch binary install 
