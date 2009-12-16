@@ -1,12 +1,9 @@
-cecil (0.6-4) UNRELEASED; urgency=low
+cecil (0.6+svn148654-1) UNRELEASED; urgency=low
 
-  [ Jo Shields ]
-  * NOT RELEASED YET
-
-  [ Iain Lane ]
   * debian/control: Move to git and update Vcs-* metadata 
+  * New upstream SVN snapshot, needed for db4o
 
- -- Iain Lane <laney@ubuntu.com>  Wed, 16 Dec 2009 00:15:17 +0000
+ -- Iain Lane <laney@ubuntu.com>  Wed, 16 Dec 2009 20:15:46 +0000
 
 cecil (0.6-3) unstable; urgency=low
 
