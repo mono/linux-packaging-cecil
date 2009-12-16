@@ -1,8 +1,12 @@
 cecil (0.6-4) UNRELEASED; urgency=low
 
+  [ Jo Shields ]
   * NOT RELEASED YET
 
- -- Jo Shields <directhex@apebox.org>  Fri, 13 Nov 2009 21:27:33 +0000
+  [ Iain Lane ]
+  * debian/control: Move to git and update Vcs-* metadata 
+
+ -- Iain Lane <laney@ubuntu.com>  Wed, 16 Dec 2009 00:15:17 +0000
 
 cecil (0.6-3) unstable; urgency=low
 

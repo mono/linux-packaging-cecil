@@ -10,8 +10,8 @@ Build-Depends-Indep: cli-common-dev (>= 0.5.4),
  libmono2.0-cil
 Standards-Version: 3.8.3
 Homepage: http://www.mono-project.com/Cecil
-Vcs-Svn: svn://svn.debian.org/svn/pkg-cli-libs/packages/cecil/trunk
-Vcs-Browser: http://svn.debian.org/viewsvn/pkg-cli-libs/packages/cecil/trunk/
+Vcs-Git: git://git.debian.org/git/pkg-cli-libs/packages/cecil.git
+Vcs-Browser: http://git.debian.org/?p=pkg-cli-libs/packages/cecil.git
 
 Package: libmono-cecil0.5-cil
 Architecture: all
