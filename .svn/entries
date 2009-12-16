@@ -1,37 +1,0 @@
-8
-
-dir
-86860
-svn+ssh://mono-cvs.ximian.com/source/tags/cecil-0.6
-svn+ssh://mono-cvs.ximian.com/source
-
-
-
-2007-10-04T09:10:48.080983Z
-86860
-jbevain
-
-
-svn:special svn:externals svn:needs-lock
-
-
-
-
-
-
-
-
-
-
-
-e3ebcda4-bce8-0310-ba0a-eca2169e7518
-
-Mono.Cecil
-dir
-
-Mono.Cecil.Mdb
-dir
-
-Mono.Cecil.Pdb
-dir
-
