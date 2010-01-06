@@ -13,10 +13,10 @@ override_dh_auto_build:
 	cd Mono.Cecil && mono-csc \
 		@Mono.Cecil.dll.sources /target:library \
 		/out:Mono.Cecil.dll
-#	sed -e 's;@prefix@;/usr;g' \
-#		-e 's;^Version:.*;Version:\ $(UPVERSION);g' \
-#		-e 's;^assemblies_dir=.*;assemblies_dir=$${prefix}/lib/cli/Mono.Cecil-$(ABIVERSION);g' \
-#		Mono.Cecil/mono-cecil.pc.in > Mono.Cecil/mono-cecil.pc
+	sed -e 's;@prefix@;/usr;g' \
+		-e 's;^Version:.*;Version:\ $(UPVERSION);g' \
+		-e 's;^assemblies_dir=.*;assemblies_dir=$${prefix}/lib/cli/mono-cecil;g' \
+		Mono.Cecil/mono-cecil.pc.in > Mono.Cecil/mono-cecil.pc
 
 	# build Mono.Cecil.Mdb.dll, needs newer mono!
 	# cd Mono.Cecil.Mdb && mono-csc -keyfile:../debian/mono.snk \
