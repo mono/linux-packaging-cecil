@@ -2,7 +2,7 @@ Source: cecil
 Section: cli-mono
 Priority: optional
 Maintainer: Debian CLI Libraries Team <pkg-cli-libs-team@lists.alioth.debian.org>
-Uploaders: Sebastian Dröge <slomo@debian.org>, Jose Carlos Garcia Sogo <jsogo@debian.org>
+Uploaders: Iain Lane <laney@ubuntu.com>
 Build-Depends: debhelper (>= 7.0.50~)
 Build-Depends-Indep: cli-common-dev (>= 0.5.4),
  mono-devel (>= 2.4.3),
@@ -24,7 +24,7 @@ Description: library to generate and inspect CIL assemblies
  browse all the contained types, modify them on the fly and save back to the
  disk the modified assembly.
  .
- This package contains the Cecil library
+ This package contains the Cecil library.
 
 Package: libmono-cecil-cil-dev
 Architecture: all
@@ -39,4 +39,4 @@ Description: library to generate and inspect CIL assemblies
  disk the modified assembly.
  .
  This package contains development files for the Cecil library, and should 
- be used for compilation
+ be used for compilation.
