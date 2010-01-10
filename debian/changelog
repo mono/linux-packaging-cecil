@@ -8,12 +8,14 @@ cecil (0.6+svn148654-1) UNRELEASED; urgency=low
     only used to change assembly version which is now not necessary.
   * debian/rules, debian/mono.snk.uue: No need to sign now, not necessary for
     unstable libs.
+  * debian/rules: Modify pcfile munging to use new assembly dir
   * debian/changelog, debian/clean, debian/libmono-cecil-cil.docs: Update
     dh7isation
   * debian/control: Change build-depends on packages provided by `mono' source
     package to mono-devel (>= 2.4.3) as this provides all we need.
+  * debian/control: Add myself to Uploaders, remove MIA people. 
 
- -- Iain Lane <laney@ubuntu.com>  Wed, 16 Dec 2009 21:52:33 +0000
+ -- Iain Lane <laney@ubuntu.com>  Wed, 06 Jan 2010 16:01:55 +0000
 
 cecil (0.6-3) unstable; urgency=low
 
