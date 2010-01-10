@@ -8,8 +8,6 @@ cecil (0.6+svn148654-1) UNRELEASED; urgency=low
     only used to change assembly version which is now not necessary.
   * debian/rules, debian/mono.snk.uue: No need to sign now, not necessary for
     unstable libs.
-  * debian/control, debian/libmono-cecil-cil-dev*: Drop -dev package as this
-    is used for dynamic linking, which we are not doing any more.
   * debian/changelog, debian/clean, debian/libmono-cecil-cil.docs: Update
     dh7isation
   * debian/control: Change build-depends on packages provided by `mono' source
