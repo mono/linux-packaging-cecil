@@ -1,4 +1,4 @@
-cecil (0.6+svn148654-1) UNRELEASED; urgency=low
+cecil (0.6+svn148654-1) unstable; urgency=low
 
   * debian/control: Move to git and update Vcs-* metadata 
   * New upstream SVN snapshot, needed for db4o
