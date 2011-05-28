@@ -10,7 +10,7 @@ UPVERSION = $(shell dpkg-parsechangelog | grep ^Vers | cut -d\  -f2 | sed 's,-.*
 
 override_dh_auto_build:
 	# build Mono.Cecil.dll
-	cd Mono.Cecil && mono-csc \
+	cd Mono.Cecil && mono-csc -keyfile:/usr/share/cli-common/keys/mono.snk \
 		@Mono.Cecil.dll.sources /target:library \
 		/out:Mono.Cecil.dll
 	sed -e 's;@prefix@;/usr;g' \
