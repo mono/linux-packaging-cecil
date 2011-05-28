@@ -1,3 +1,10 @@
+cecil (0.6+svn148654-2) UNRELEASED; urgency=low
+
+  * [ca3fb1b] Sign library with mono signing key
+  * [12bfdca] Standards-Version → 3.9.2, no changes required
+
+ -- Iain Lane <laney@debian.org>  Sat, 28 May 2011 14:26:32 +0100
+
 cecil (0.6+svn148654-1) unstable; urgency=low
 
   * debian/control: Move to git and update Vcs-* metadata 
