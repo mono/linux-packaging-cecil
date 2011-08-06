@@ -13,8 +13,11 @@ override_dh_auto_build:
 
 	sed -e 's;@prefix@;/usr;g' \
 		-e 's;^Version:.*;Version:\ $(UPVERSION);g' \
-		-e 's;lib/Mono.Cecil$$;lib/mono-cecil;g' \
-		Mono.Cecil/mono-cecil.pc.in > Mono.Cecil/mono-cecil.pc
+		debian/mono-cecil.pc.in > Mono.Cecil/mono-cecil.pc
+
+override_dh_clean:
+	rm -f Mono.Cecil/mono-cecil.pc
+	dh_clean
 
 %:
 	dh $@
