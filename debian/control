@@ -4,8 +4,8 @@ Priority: optional
 Maintainer: Debian CLI Libraries Team <pkg-cli-libs-team@lists.alioth.debian.org>
 Uploaders: Iain Lane <laney@debian.org>
 Build-Depends: debhelper (>= 7.0.50~)
-Build-Depends-Indep: cli-common-dev (>= 0.5.4),
- mono-devel (>= 2.4.3),
+Build-Depends-Indep: cli-common-dev (>= 0.8~exp2),
+ mono-devel (>= 2.10),
  sharutils
 Standards-Version: 3.9.2
 Homepage: http://www.mono-project.com/Cecil
