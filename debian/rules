@@ -20,6 +20,9 @@ override_dh_clean:
 	find . -type d -name obj -exec rm -rf {} \;
 	dh_clean
 
+override_dh_clideps:
+	dh_clideps --exclude-moduleref=ole32.dll
+
 %:
 	dh $@
 
