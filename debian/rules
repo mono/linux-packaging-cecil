@@ -9,26 +9,12 @@ include /usr/share/cli-common/cli.make
 UPVERSION = $(shell dpkg-parsechangelog | grep ^Vers | cut -d\  -f2 | sed 's,-.*,,')
 
 override_dh_auto_build:
-	# build Mono.Cecil.dll
-	cd Mono.Cecil && mono-csc -keyfile:/usr/share/cli-common/keys/mono.snk \
-		@Mono.Cecil.dll.sources /target:library \
-		/out:Mono.Cecil.dll
+	xbuild /property:Configuration=net_4_0_Release
+
 	sed -e 's;@prefix@;/usr;g' \
 		-e 's;^Version:.*;Version:\ $(UPVERSION);g' \
 		-e 's;lib/Mono.Cecil$$;lib/mono-cecil;g' \
 		Mono.Cecil/mono-cecil.pc.in > Mono.Cecil/mono-cecil.pc
-
-	# build Mono.Cecil.Mdb.dll, needs newer mono!
-	# cd Mono.Cecil.Mdb && mono-csc -keyfile:../debian/mono.snk \
-	#	@Mono.Cecil.Mdb.dll.sources /target:library \
-	#	/r:../Mono.Cecil/Mono.Cecil.dll \
-	#	/r:Mono.CompilerServices.SymbolWriter.dll
-	#	/out:Mono.Cecil.Mdb.dll	
-
-
-#	cd debian && al -link:policy.0.5.Mono.Cecil.config \
-                    -out:policy.0.5.Mono.Cecil.dll \
-                    -keyfile:mono.snk
 
 %:
 	dh $@
