@@ -23,6 +23,9 @@ override_dh_clean:
 override_dh_clideps:
 	dh_clideps --exclude-moduleref=ole32.dll
 
+# no clilibs — private library
+override_dh_makeclilibs:
+
 %:
 	dh $@
 
