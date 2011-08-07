@@ -6,7 +6,8 @@ cecil (0.9.5+dfsg-1) experimental; urgency=low
     apps grow unnecessary depends otherwise
   * [5288c1f] Mangle debian version in watch file to take care of repacking.
     Also update watch file to look at new github location for tarballs
-  * [8f7110f] Relax version restriction on cli-common-dev; anything from 0.8 will do
+  * [8f7110f] Relax version restriction on cli-common-dev; anything from 0.8
+    will do
 
   [ Jo Shields ]
   * [e846eb8] Imported Upstream version 0.9.5+dfsg
