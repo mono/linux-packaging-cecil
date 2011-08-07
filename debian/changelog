@@ -1,3 +1,27 @@
+cecil (0.9.5+dfsg-1) experimental; urgency=low
+
+  [ Iain Lane ]
+  * [411dc78] Update to use my d.o email address
+  * [74bedaf] Disable clilibs; this is an unstable library
+    apps grow unnecessary depends otherwise
+  * [5288c1f] Mangle debian version in watch file to take care of repacking.
+    Also update watch file to look at new github location for tarballs
+  * [8f7110f] Relax version restriction on cli-common-dev; anything from 0.8 will do
+
+  [ Jo Shields ]
+  * [e846eb8] Imported Upstream version 0.9.5+dfsg
+  * [3017d96] Bump build dependencies, as we're building for Mono 2.10 now.
+  * [27c2cff] Set to DebSrc 3.0, so we can apply patches via Quilt.
+  * [d0447b3] Update build to use XBuild, not manual compiler invocation.
+  * [08d2b92] Patch to avoid building tests (which rely on NUnit 2.4)
+  * [fa5a033] Update install file to include all new assemblies and locations.
+  * [43bd1e2] Since upstream no longer ships a pcfile, add our own.
+  * [942ead4] Don't try to ship a Changelog when none exists.
+  * [ba8232d] Erase obj/ folders in clean rule.
+  * [090af34] Exclude modulerefs on Windowsy libraries.
+
+ -- Iain Lane <laney@debian.org>  Sun, 07 Aug 2011 22:38:20 +0100
+
 cecil (0.6+svn148654-2) unstable; urgency=low
 
   * [ca3fb1b] Sign library with mono signing key
