@@ -1,3 +1,9 @@
+cecil (0.9.5+dfsg-2) unstable; urgency=low
+
+  * No-change rebuild for CLR 4.0 transition 
+
+ -- Iain Lane <laney@debian.org>  Wed, 18 Jan 2012 21:01:54 +0000
+
 cecil (0.9.5+dfsg-1) experimental; urgency=low
 
   [ Iain Lane ]
