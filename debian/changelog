@@ -1,3 +1,9 @@
+cecil (0.9.5+dfsg-3) unstable; urgency=medium
+
+  * No-change rebuild for CLR 4.5 transition
+
+ -- Jo Shields <directhex@apebox.org>  Tue, 10 Nov 2015 10:58:27 +0000
+
 cecil (0.9.5+dfsg-2) unstable; urgency=low
 
   * No-change rebuild for CLR 4.0 transition 
