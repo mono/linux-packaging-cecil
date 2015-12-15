@@ -1,3 +1,9 @@
+cecil (0.9.5+dfsg-4) unstable; urgency=medium
+
+  * [328ec4f] Force 4.5 framework for build
+
+ -- Jo Shields <jo.shields@xamarin.com>  Tue, 15 Dec 2015 10:12:32 +0000
+
 cecil (0.9.5+dfsg-3) unstable; urgency=medium
 
   * No-change rebuild for CLR 4.5 transition
