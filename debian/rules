@@ -20,8 +20,9 @@ override_dh_clean:
 	find . -type d -name obj -exec rm -rf {} \;
 	dh_clean
 
+# these are miscalculated, they pick up the private-yet-GAC Cecil from src:mono
+# so manually define deps instead.
 override_dh_clideps:
-	dh_clideps --exclude-moduleref=ole32.dll
 
 # no clilibs — private library
 override_dh_makeclilibs:

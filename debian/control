@@ -14,7 +14,7 @@ Vcs-Browser: http://git.debian.org/?p=pkg-cli-libs/packages/cecil.git
 
 Package: libmono-cecil-cil
 Architecture: all
-Depends: ${cli:Depends}, ${misc:Depends}
+Depends: ${cli:Depends}, ${misc:Depends}, libmono-corlib4.5-cil (>= 4.2.0), libmono-system-core4.0-cil (>= 4.0.0~alpha1), libmono-system4.0-cil (>= 4.0.0~alpha1)
 Conflicts: libmono-cecil0.3-cil, libmono-cecil0.4-cil, libmono-cecil0.5-cil
 Description: library to generate and inspect CIL assemblies
  Cecil is a library under development to generate and inspect programs and
