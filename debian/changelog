@@ -1,3 +1,10 @@
+cecil (0.9.5+dfsg-4) unstable; urgency=medium
+
+  * [2bb85b2] Avoid depending on strict Mono version due to 
+    dh_clideps error (Closes: #841615)
+
+ -- Jo Shields <directhex@apebox.org>  Mon, 07 Nov 2016 12:08:43 +0000
+
 cecil (0.9.5+dfsg-3) unstable; urgency=medium
 
   * No-change rebuild for CLR 4.5 transition
