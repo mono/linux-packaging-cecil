@@ -1,3 +1,9 @@
+cecil (0.9.5+dfsg-5xamarin5) alpha; urgency=medium
+
+  * Packaging bugfix:
+
+ -- Xamarin Public Jenkins (auto-signing) <releng@xamarin.com>  Tue, 04 Jul 2017 11:41:43 +0000
+
 cecil (0.9.5+dfsg-5xamarin4) alpha; urgency=medium
 
   * Packaging bugfix:
